@@ -1,0 +1,12 @@
+# Операционная система для запуска
+FROM ubuntu
+# Установка необходимых компонентов для запуска
+RUN apt-get update && apt-get install -y \
+x11-apps \
+xauth \
+&& rm -rf /var/lib/apt/lists/*
+# Установка экрана по умолчанию
+ENV DISPLAY=:0
+# Запуск приложения глаз через консольную команду xeyes
+CMD [ "xeyes" ]
+
